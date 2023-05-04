@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #main_id{
+        width:100%;
+        max-width:100%;
+       }
+       #main_id p{
+        width: 98%;
+        text-align: center;
+        background: rebeccapurple;
+        color: white;
+        padding: 14px;
+        border-radius: 15px;
+        font-family: sans-serif;
+       }
+       #main_id textarea{
+        min-width: 100%;
+        min-height: 150px;
+        border: 2px solid rgba(73, 100, 221, 0.925);
+          outline: none;
+          border-radius: 10px;
+       }
+       #main_id select{
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 5px;
+        border-radius: 14px;
+        border: 2px solid rgb(65, 225, 217);
+       }
+
+       
+    </style>
+</head>
+<body>
+    <main id="main_id">
+        <p>text-نص</p> 
+        <select id="select">
+         <option value="encode">تشفير النص</option>
+         <option value="decode">فك تشفير النص</option>
+        </select>
+        <textarea  id="text" ></textarea>
+        <p>result_النتيجه</p>
+        <textarea  id="result" ></textarea>
+    </main>
+   <script>
+    let textarea=document.getElementById("text");
+    let result=document.getElementById("result");
+    let select =document.getElementById("select");
+textarea.addEventListener("input",()=>{
+    make_result();
+});
+
+select.addEventListener("change",()=>{
+    make_result();
+});
+    function make_result(){
+        if(select.value=="decode"){
+            result.value= atob(textarea.value); 
+        }
+        else{
+            result.value= btoa(textarea.value); 
+        }
+    }
+   </script>
+</body>
+</html>
